@@ -75,7 +75,7 @@ const HeaderLeftContent = () => {
               paddingTop: "2rem",
               fontSize: "3.5rem",
 
-              opacity: ".2",
+              opacity: ".1",
               textAlign: "center"
             }}
             variant="body1"
