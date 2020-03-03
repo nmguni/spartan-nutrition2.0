@@ -1,29 +1,18 @@
 .header {
-  background-color: rgb(136, 136, 136);
+  // background-color: rgb(136, 136, 136);
   height: 100vh;
 }
 .title {
   padding: 2.5rem 0 2.5rem 0;
-}
-.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.centerIcon {
-  text-align: center;
 }
 
 .headerContent {
   padding-top: 2rem;
 }
 
-.bgColorOne {
-  background-color: red;
-}
-
-.bgcolorTwo {
-  background-color: blue;
+.spacing {
+  margin: 0 4rem 0 0;
+  border: solid rgba(0, 0, 0, 0.54) 2px;
+  padding: 0.5rem;
+  border-radius: 50%;
 }

@@ -3,12 +3,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import { green } from "@material-ui/core/colors";
+import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
-
-import EcoIcon from "@material-ui/icons/Eco";
-
+import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import headerStyles from "./header.module.scss";
+
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -20,13 +23,23 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
     color: theme.palette.text.secondary,
     whiteSpace: "nowrap",
-    marginBottom: theme.spacing(1)
+    marginBottom: theme.spacing(1),
+    boxShadow: "none",
+    height: "500px",
+
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
   },
   divider: {
     margin: theme.spacing(2, 0)
   },
   root: {
     color: theme.palette.text.primary
+  },
+  btnMargin: {
+    marginRight: "1rem"
   }
 }));
 
@@ -35,18 +48,9 @@ export default function HeaderContent() {
 
   return (
     <div>
-      <Grid className={headerStyles.headerContent} container spacing={3}>
-        <Grid className={headerStyles.bgColorOne} item xs={6}>
-          <Paper className={classes.paper}>
-            <HeaderLeftContent />
-          </Paper>
-        </Grid>
-        <Grid className={headerStyles.bgcolorTwo} item xs={6}>
-          <Paper className={classes.paper}>
-            <Typography variant="h1">RIGHT</Typography>
-          </Paper>
-        </Grid>
-      </Grid>
+      <Paper className={classes.paper}>
+        <HeaderLeftContent />
+      </Paper>
     </div>
   );
 }
@@ -55,37 +59,89 @@ const HeaderLeftContent = () => {
   const classes = useStyles();
   return (
     <div>
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <div className={classes.root}>
-            <EcoIcon style={{ color: green[500], fontSize: 40 }} />
-          </div>
-        </Grid>
-        <Grid item xs={4}>
-          <EcoIcon style={{ color: green[500], fontSize: 40 }} />
-        </Grid>
-        <Grid item xs={4}>
-          <EcoIcon style={{ color: green[500], fontSize: 40 }} />
-        </Grid>
-      </Grid>
-      <Typography className={headerStyles.title} variant="h3">
-        Welcome to <br /> Spartan Nutrition{" "}
-        <Typography style={{ paddingTop: "2rem" }} variant="body1">
-          emaining essentially unchanged. It was popularised <br /> in the 1960s
-          with the release of
-        </Typography>
-      </Typography>
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignContent="center"
+        alignItems="center"
+        justifyContent="space-around  "
+        // p={1}
+        // mt={3}
+      >
+        <Typography className={headerStyles.title} variant="h1">
+          Welcome to Spartan Nutrition{" "}
+          <Typography
+            style={{
+              paddingTop: "2rem",
+              fontSize: "3.5rem",
 
-      <Grid container>
-        <Grid item xs={6}>
-          <Button variant="contained" color="primary">
-            Primary
+              opacity: ".2",
+              textAlign: "center"
+            }}
+            variant="body1"
+          >
+            ASK THE EXPERTS!
+          </Typography>
+        </Typography>
+        <Box
+          display="flex"
+          flexDirection="row"
+          alignContent="center"
+          alignItems="center"
+          // mt={1}
+        >
+          <Button className={classes.btnMargin} variant="contained">
+            Shop All Suplements
           </Button>
-        </Grid>
-        <Grid item xs={6}>
-          <Typography>Lifetime Guarantee</Typography>
-        </Grid>
-      </Grid>
+          <Typography>Local Same Day Delivery Only $5.00</Typography>
+        </Box>
+      </Box>
+      {/* <Typography>ASK THE EXPERTS!</Typography> */}
     </div>
   );
 };
+
+// const HeaderRightContent = () => {
+//   const useStyles = makeStyles(theme => ({
+//     root: {
+//       display: "flex",
+//       flexWrap: "wrap",
+//       "& > *": {
+//         margin: theme.spacing(1),
+//         width: theme.spacing(16),
+//         height: theme.spacing(16)
+//       }
+//     },
+//     paper: {
+//       padding: theme.spacing(1),
+//       color: theme.palette.text.secondary,
+//       whiteSpace: "nowrap",
+//       marginBottom: theme.spacing(1),
+//       boxShadow: "none"
+//     }
+//   }));
+
+//   const classes = useStyles();
+
+//   return (
+//     <div>
+//       <Box
+//         display="flex"
+//         flexDirection="column"
+//         alignContent="center"
+//         alignItems="center"
+//         justifyContent="space-around  "
+//         p={1}
+//         m={2}
+//       >
+//         <Paper className={classes.paper}>
+//           <ThemeProvider theme={theme}>
+//             <Typography className={headerStyles.title} variant="h4">
+//               ASK THE EXPERTS!
+//             </Typography>
+//           </ThemeProvider>
+//         </Paper>
+//       </Box>
+//     </div>
+//   );
+// };

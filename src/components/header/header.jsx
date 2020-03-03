@@ -2,6 +2,8 @@ import React from "react";
 import headerStyles from "./header.module.scss";
 import NavBar from "../navbar/navbar";
 import HeaderContent from "./headerContent";
+import Sleep from "../sleepSection";
+import SleepCards from "../sleep/sleepCards";
 
 // import Container from "../container/container";
 
@@ -12,6 +14,7 @@ const Header = () => {
         <NavBar />
         <HeaderContent />
       </header>
+      <Sleep />
     </div>
   );
 };
