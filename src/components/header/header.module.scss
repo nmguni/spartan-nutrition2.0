@@ -1,12 +1,16 @@
+// Colors
+$bg-color: white;
+$dot-color: black;
+
+// Dimensions
+$dot-size: 1px;
+$dot-space: 22px;
+
 .header {
-  // background-color: rgb(136, 136, 136);
+  // background-color: #000;
   height: 100vh;
 }
-.title {
-  padding: 2.5rem 0 2.5rem 0;
-}
-
-.headerContent {
+.title .headerContent {
   padding-top: 2rem;
 }
 
@@ -15,4 +19,18 @@
   border: solid rgba(0, 0, 0, 0.54) 2px;
   padding: 0.5rem;
   border-radius: 50%;
+}
+.headColor {
+  // background-color: rgba(0, 0, 0, 0.301);
+  padding: 2rem;
+  padding-bottom: 3rem;
+  background: linear-gradient(
+        90deg,
+        $bg-color ($dot-space - $dot-size),
+        transparent 1%
+      )
+      center,
+    linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center,
+    $dot-color;
+  background-size: $dot-space $dot-space;
 }

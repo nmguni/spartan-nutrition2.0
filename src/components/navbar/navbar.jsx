@@ -1,7 +1,3 @@
-import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
 import navStyles from "./navbar.module.scss";
 import React from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
@@ -9,14 +5,10 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 
@@ -31,12 +23,15 @@ const useStyles = makeStyles(theme => ({
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block"
-    }
+    },
+    color: "#000"
   },
   search: {
     position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.black, 0.15),
+    // borderBottom: "1px solid rgba(0, 0, 0, 0.25)",
+    // borderLeft: "1px solid rgba(0, 0, 0, 0.25)",
+    // borderRadius: "4px",
+    // backgroundColor: "rgba(0,0,0, 0.1)",
     "&:hover": {
       backgroundColor: fade(theme.palette.common.black, 0.25)
     },
@@ -55,7 +50,8 @@ const useStyles = makeStyles(theme => ({
     pointerEvents: "none",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    color: "#7a7a7a8c"
   },
   inputRoot: {
     color: "inherit"
@@ -78,6 +74,10 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     [theme.breakpoints.up("md")]: {
       display: "none"
+    },
+    large: {
+      width: theme.spacing(8),
+      height: theme.spacing(8)
     }
   }
 }));
@@ -145,7 +145,7 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem>
         <Typography className={classes.title} variant="h6" noWrap>
-          Spartan Nutrition
+          Nutrition
         </Typography>
       </MenuItem>
       <MenuItem>
@@ -169,11 +169,10 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-
   return (
     <div className={navStyles.container}>
       <AppBar
-        style={{ backgroundColor: "#fff", color: "black" }}
+        style={{ backgroundColor: "#fff", color: "black", boxShadow: "none" }}
         className={navStyles.navBar}
         position="static"
       >
@@ -183,44 +182,16 @@ export default function PrimarySearchAppBar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
+          ></IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Spartan Nutrition
+            Nutrition
           </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
-          </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <MenuItem>Home</MenuItem>
             <MenuItem>About</MenuItem>
             <MenuItem>Buy Now</MenuItem>
             <MenuItem>contact</MenuItem>
-
-            {/* <FormControl variant="filled" className={classes.formControl}>
-              <InputLabel id="demo-simple-select-filled-label">CAD</InputLabel>
-              <Select
-                labelId="demo-simple-select-filled-label"
-                id="demo-simple-select-filled"
-                value={age}
-                onChange={handleChange}
-              >
-                <MenuItem value={10}>CAD</MenuItem>
-                <MenuItem value={20}>USD</MenuItem>
-              </Select>
-            </FormControl> */}
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
