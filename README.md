@@ -1,3 +1,3 @@
 ### Spartan Nutrition Site Rebuild
 
-![spartan nutrition](src/products/images/sparty.png)
+![spartan nutrition](src/components/products/images/sparty.png)
