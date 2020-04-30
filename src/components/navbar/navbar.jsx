@@ -11,20 +11,22 @@ import Menu from "@material-ui/core/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import Button from "@material-ui/core/Button";
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   title: {
     display: "none",
     [theme.breakpoints.up("sm")]: {
-      display: "block"
+      display: "block",
     },
-    color: "#000"
+    color: "#000",
   },
   search: {
     position: "relative",
@@ -33,15 +35,15 @@ const useStyles = makeStyles(theme => ({
     // borderRadius: "4px",
     // backgroundColor: "rgba(0,0,0, 0.1)",
     "&:hover": {
-      backgroundColor: fade(theme.palette.common.black, 0.25)
+      backgroundColor: fade(theme.palette.common.black, 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(3),
-      width: "auto"
-    }
+      width: "auto",
+    },
   },
   searchIcon: {
     width: theme.spacing(7),
@@ -51,44 +53,49 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    color: "#7a7a7a8c"
+    color: "#7a7a7a8c",
   },
   inputRoot: {
-    color: "inherit"
+    color: "inherit",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: 200
-    }
+      width: 200,
+    },
   },
   sectionDesktop: {
     display: "none",
     [theme.breakpoints.up("md")]: {
-      display: "flex"
-    }
+      display: "flex",
+    },
   },
   sectionMobile: {
     display: "flex",
     [theme.breakpoints.up("md")]: {
-      display: "none"
+      display: "none",
     },
     large: {
       width: theme.spacing(8),
-      height: theme.spacing(8)
-    }
-  }
+      height: theme.spacing(8),
+    },
+  },
+
+  links: {
+    color: "#313131ea",
+    textDecoration: "none",
+  },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar(props) {
   // const classes = useStyles();
   const [age, setAge] = React.useState("");
 
   const inputLabel = React.useRef(null);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setAge(event.target.value);
   };
 
@@ -99,7 +106,7 @@ export default function PrimarySearchAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = event => {
+  const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -112,7 +119,7 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = event => {
+  const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -172,9 +179,13 @@ export default function PrimarySearchAppBar() {
   return (
     <div className={navStyles.container}>
       <AppBar
-        style={{ backgroundColor: "#fff", color: "black", boxShadow: "none" }}
+        style={{
+          backgroundColor: "rgba(255, 255, 255, 0.65)",
+          color: "black",
+          boxShadow: "none",
+        }}
         className={navStyles.navBar}
-        position="static"
+        position="fixed"
       >
         <Toolbar>
           <IconButton
@@ -188,10 +199,44 @@ export default function PrimarySearchAppBar() {
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <MenuItem>Home</MenuItem>
-            <MenuItem>About</MenuItem>
-            <MenuItem>Buy Now</MenuItem>
-            <MenuItem>contact</MenuItem>
+            <MenuItem>
+              {" "}
+              <a className={classes.links} href="#">
+                Health
+              </a>{" "}
+            </MenuItem>
+            <MenuItem>
+              <a className={classes.links} href="#">
+                Hormone
+              </a>
+            </MenuItem>
+            <MenuItem>
+              <a className={classes.links} href="#">
+                Performance
+              </a>
+            </MenuItem>
+            <MenuItem>
+              <a className={classes.links} href="#">
+                About
+              </a>
+            </MenuItem>
+            <MenuItem>
+              {" "}
+              <a className={classes.links} href="/#contact">
+                {" "}
+                contact
+              </a>{" "}
+            </MenuItem>
+            <Button>
+              {" "}
+              <Badge
+                style={{ color: "#d72323", fontWeight: "bold!important" }}
+                badgeContent={0}
+                showZero
+              >
+                <ShoppingBasketIcon style={{ color: "#256d52" }} />
+              </Badge>
+            </Button>
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
@@ -206,6 +251,7 @@ export default function PrimarySearchAppBar() {
           </div>
         </Toolbar>
       </AppBar>
+
       {renderMobileMenu}
       {renderMenu}
     </div>

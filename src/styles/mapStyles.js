@@ -1,366 +1,177 @@
 // https://snazzymaps.com/style/72543/assassins-creed-iv
 export default [
   {
-    featureType: "all",
-    elementType: "all",
+    featureType: "water",
+    elementType: "geometry",
     stylers: [
       {
-        visibility: "on"
-      }
-    ]
+        color: "#e9e9e9",
+      },
+      {
+        lightness: 17,
+      },
+    ],
   },
   {
-    featureType: "all",
-    elementType: "labels",
+    featureType: "landscape",
+    elementType: "geometry",
     stylers: [
       {
-        visibility: "off"
+        color: "#f5f5f5",
       },
       {
-        saturation: "-100"
-      }
-    ]
+        lightness: 20,
+      },
+    ],
   },
   {
-    featureType: "all",
-    elementType: "labels.text.fill",
+    featureType: "road.highway",
+    elementType: "geometry.fill",
     stylers: [
       {
-        saturation: 36
+        color: "#ffffff",
       },
       {
-        color: "#000000"
+        lightness: 17,
       },
-      {
-        lightness: 40
-      },
-      {
-        visibility: "off"
-      }
-    ]
+    ],
   },
   {
-    featureType: "all",
+    featureType: "road.highway",
+    elementType: "geometry.stroke",
+    stylers: [
+      {
+        color: "#ffffff",
+      },
+      {
+        lightness: 29,
+      },
+      {
+        weight: 0.2,
+      },
+    ],
+  },
+  {
+    featureType: "road.arterial",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#ffffff",
+      },
+      {
+        lightness: 18,
+      },
+    ],
+  },
+  {
+    featureType: "road.local",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#ffffff",
+      },
+      {
+        lightness: 16,
+      },
+    ],
+  },
+  {
+    featureType: "poi",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#f5f5f5",
+      },
+      {
+        lightness: 21,
+      },
+    ],
+  },
+  {
+    featureType: "poi.park",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#dedede",
+      },
+      {
+        lightness: 21,
+      },
+    ],
+  },
+  {
     elementType: "labels.text.stroke",
     stylers: [
       {
-        visibility: "off"
+        visibility: "on",
       },
       {
-        color: "#000000"
+        color: "#ffffff",
       },
       {
-        lightness: 16
-      }
-    ]
+        lightness: 16,
+      },
+    ],
   },
   {
-    featureType: "all",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        saturation: 36,
+      },
+      {
+        color: "#333333",
+      },
+      {
+        lightness: 40,
+      },
+    ],
+  },
+  {
     elementType: "labels.icon",
     stylers: [
       {
-        visibility: "off"
-      }
-    ]
-  },
-  {
-    featureType: "administrative",
-    elementType: "geometry.fill",
-    stylers: [
-      {
-        color: "#000000"
+        visibility: "off",
       },
-      {
-        lightness: 20
-      }
-    ]
-  },
-  {
-    featureType: "administrative",
-    elementType: "geometry.stroke",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 17
-      },
-      {
-        weight: 1.2
-      }
-    ]
-  },
-  {
-    featureType: "landscape",
-    elementType: "geometry",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 20
-      }
-    ]
-  },
-  {
-    featureType: "landscape",
-    elementType: "geometry.fill",
-    stylers: [
-      {
-        color: "#4d6059"
-      }
-    ]
-  },
-  {
-    featureType: "landscape",
-    elementType: "geometry.stroke",
-    stylers: [
-      {
-        color: "#4d6059"
-      }
-    ]
-  },
-  {
-    featureType: "landscape.natural",
-    elementType: "geometry.fill",
-    stylers: [
-      {
-        color: "#4d6059"
-      }
-    ]
-  },
-  {
-    featureType: "poi",
-    elementType: "geometry",
-    stylers: [
-      {
-        lightness: 21
-      }
-    ]
-  },
-  {
-    featureType: "poi",
-    elementType: "geometry.fill",
-    stylers: [
-      {
-        color: "#4d6059"
-      }
-    ]
-  },
-  {
-    featureType: "poi",
-    elementType: "geometry.stroke",
-    stylers: [
-      {
-        color: "#4d6059"
-      }
-    ]
-  },
-  {
-    featureType: "road",
-    elementType: "geometry",
-    stylers: [
-      {
-        visibility: "on"
-      },
-      {
-        color: "#7f8d89"
-      }
-    ]
-  },
-  {
-    featureType: "road",
-    elementType: "geometry.fill",
-    stylers: [
-      {
-        color: "#7f8d89"
-      }
-    ]
-  },
-  {
-    featureType: "road.highway",
-    elementType: "geometry.fill",
-    stylers: [
-      {
-        color: "#7f8d89"
-      },
-      {
-        lightness: 17
-      }
-    ]
-  },
-  {
-    featureType: "road.highway",
-    elementType: "geometry.stroke",
-    stylers: [
-      {
-        color: "#7f8d89"
-      },
-      {
-        lightness: 29
-      },
-      {
-        weight: 0.2
-      }
-    ]
-  },
-  {
-    featureType: "road.arterial",
-    elementType: "geometry",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 18
-      }
-    ]
-  },
-  {
-    featureType: "road.arterial",
-    elementType: "geometry.fill",
-    stylers: [
-      {
-        color: "#7f8d89"
-      }
-    ]
-  },
-  {
-    featureType: "road.arterial",
-    elementType: "geometry.stroke",
-    stylers: [
-      {
-        color: "#7f8d89"
-      }
-    ]
-  },
-  {
-    featureType: "road.local",
-    elementType: "geometry",
-    stylers: [
-      {
-        color: "#000000"
-      },
-      {
-        lightness: 16
-      }
-    ]
-  },
-  {
-    featureType: "road.local",
-    elementType: "geometry.fill",
-    stylers: [
-      {
-        color: "#7f8d89"
-      }
-    ]
-  },
-  {
-    featureType: "road.local",
-    elementType: "geometry.stroke",
-    stylers: [
-      {
-        color: "#7f8d89"
-      }
-    ]
+    ],
   },
   {
     featureType: "transit",
     elementType: "geometry",
     stylers: [
       {
-        color: "#000000"
+        color: "#f2f2f2",
       },
       {
-        lightness: 19
-      }
-    ]
-  },
-  {
-    featureType: "water",
-    elementType: "all",
-    stylers: [
-      {
-        color: "#2b3638"
+        lightness: 19,
       },
-      {
-        visibility: "on"
-      }
-    ]
+    ],
   },
   {
-    featureType: "water",
-    elementType: "geometry",
-    stylers: [
-      {
-        color: "#2b3638"
-      },
-      {
-        lightness: 17
-      }
-    ]
-  },
-  {
-    featureType: "water",
+    featureType: "administrative",
     elementType: "geometry.fill",
     stylers: [
       {
-        color: "#24282b"
-      }
-    ]
+        color: "#fefefe",
+      },
+      {
+        lightness: 20,
+      },
+    ],
   },
   {
-    featureType: "water",
+    featureType: "administrative",
     elementType: "geometry.stroke",
     stylers: [
       {
-        color: "#24282b"
-      }
-    ]
-  },
-  {
-    featureType: "water",
-    elementType: "labels",
-    stylers: [
+        color: "#fefefe",
+      },
       {
-        visibility: "off"
-      }
-    ]
-  },
-  {
-    featureType: "water",
-    elementType: "labels.text",
-    stylers: [
+        lightness: 17,
+      },
       {
-        visibility: "off"
-      }
-    ]
+        weight: 1.2,
+      },
+    ],
   },
-  {
-    featureType: "water",
-    elementType: "labels.text.fill",
-    stylers: [
-      {
-        visibility: "off"
-      }
-    ]
-  },
-  {
-    featureType: "water",
-    elementType: "labels.text.stroke",
-    stylers: [
-      {
-        visibility: "off"
-      }
-    ]
-  },
-  {
-    featureType: "water",
-    elementType: "labels.icon",
-    stylers: [
-      {
-        visibility: "off"
-      }
-    ]
-  }
 ];

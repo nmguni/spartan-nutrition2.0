@@ -8,16 +8,16 @@ import headerStyles from "./header.module.scss";
 import {
   createMuiTheme,
   ThemeProvider,
-  makeStyles
+  makeStyles,
 } from "@material-ui/core/styles";
 
 // let theme = createMuiTheme();
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     display: "grid",
     gridTemplateColumns: "repeat(12, 1fr)",
-    gridGap: theme.spacing(3)
+    gridGap: theme.spacing(3),
   },
   paper: {
     padding: theme.spacing(1),
@@ -30,25 +30,25 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   divider: {
-    margin: theme.spacing(2, 0)
+    margin: theme.spacing(2, 0),
   },
   root: {
-    color: theme.palette.text.primary
+    color: theme.palette.text.primary,
   },
   btnMargin: {
     marginRight: "1rem",
     color: "#256d52",
     backgroundColor: "#c7c7c71a",
-    boxShadow: "none"
+    boxShadow: "none",
   },
   title: {
     fontWeight: "400",
     color: "#256d52",
-    fontSize: "10rem"
-  }
+    fontSize: "10rem",
+  },
 }));
 
 export default function HeaderContent() {
@@ -76,7 +76,7 @@ const HeaderLeftContent = () => {
         alignContent="center"
         alignItems="center"
         justifyContent="space-around  "
-        style={{ marginTop: " 8%" }}
+        style={{ marginTop: " 15%" }}
       >
         <Typography className={classes.title} variant="h1">
           Spartan Nutrition
@@ -88,7 +88,7 @@ const HeaderLeftContent = () => {
             fontSize: "3.5rem",
 
             opacity: ".1",
-            textAlign: "center"
+            textAlign: "center",
           }}
           variant="body1"
         >
