@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "2rem",
     color: "#313131cf",
     margin: "0  5% 0 0",
+    [theme.breakpoints.down(550)]: {
+      margin: " 0",
+    },
   },
   rootTwo: {
     maxWidth: "100%",

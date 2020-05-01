@@ -84,6 +84,9 @@ const useStyles = makeStyles((theme) => ({
   },
   cardContent: {
     margin: "1rem",
+    [theme.breakpoints.down(500)]: {
+      margin: "0",
+    },
   },
   gridItem: {
     display: "flex",
@@ -96,10 +99,10 @@ const useStyles = makeStyles((theme) => ({
     color: "rgb(150, 150, 150)",
   },
   bottomBtn: {
-    color: "#313131ea",
+    color: "#256d52",
     fontSize: "1.2rem",
     fontWeight: "bold",
-    background: "#ededed",
+    border: "solid 2px #313131ea",
     padding: ".1rem .5rem",
     borderRadius: "4px",
   },

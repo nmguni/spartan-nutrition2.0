@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "space-around",
     [theme.breakpoints.down(700)]: {
-      height: "60vh",
+      height: "95vh",
       marginTop: " 0",
       display: "flex",
       // flexDirection: "column",
