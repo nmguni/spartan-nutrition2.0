@@ -1,38 +1,52 @@
 import React from "react";
-import productStyles from "./product.module.scss";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
-
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-
-// imges
 import bgImg from "./images/test.png";
 import blueberries from "./images/blueberries-raspberries.jpg";
 import veggies from "./images/assorted-vegetable.jpg";
-
-// ICONS
-
 import StarIcon from "@material-ui/icons/Star";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import StarHalfIcon from "@material-ui/icons/StarHalf";
-
+import LazyLoad from "react-lazyload";
+import Hidden from "@material-ui/core/Hidden";
 import headerStyles from "../header/header.module.scss";
+
 const useStyles = makeStyles((theme) => ({
+  container: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "center",
+    justifyContent: "center",
+    marginTop: "1rem",
+    [theme.breakpoints.down(950)]: {
+      height: "100%",
+      marginTop: "5%",
+    },
+  },
   title: {
     fontSize: "2rem",
     color: "#313131ea",
     fontWeight: "bold",
+    [theme.breakpoints.down(950)]: {
+      textAlign: "center",
+    },
   },
   body: {
     paddingTop: ".5rem",
     lineHeight: "1.5rem",
     color: "#313131ba",
+    padding: "1rem",
+    [theme.breakpoints.down(1050)]: {
+      textAlign: "center",
+    },
   },
   root: {
     maxWidth: 260,
@@ -59,39 +73,70 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: " 1.5rem",
     color: "rgba(0,0,0, 0.7)",
   },
+  itemInfo: {
+    flexWrap: "wrap",
+    display: "flex",
+    justifyContent: "space-between",
+    [theme.breakpoints.down(1050)]: {
+      display: "none",
+    },
+  },
+  mediaGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gridGap: ".5rem",
+    [theme.breakpoints.down(950)]: {
+      display: "flex",
+      justifyContent: "space-evenly",
+    },
+    [theme.breakpoints.down(550)]: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
+  },
+  content: {
+    margin: "0 10% 0 10%",
+    [theme.breakpoints.down(1050)]: {
+      margin: "0 3% 0 3%",
+    },
+  },
 }));
 
 const Wellness = () => {
   const classes = useStyles();
   return (
-    <div className={productStyles.container}>
+    <div id="health" className={classes.container}>
       <Grid container>
-        <Grid
-          className={headerStyles.headColor}
-          style={{ padding: "2.5rem" }}
-          item
-          sx={12}
-          md={6}
-        >
-          {/* <Card elevation={0} variant="outlined" className={classes.rootTwo}> */}
-          <CardMedia
-            className={classes.mediaTwo}
-            image={bgImg}
-            title="Contemplative Reptile"
-          />
-          {/* </Card> */}
-        </Grid>
+        <Hidden only="sm">
+          <Grid
+            className={headerStyles.headColor}
+            style={{ padding: "2.5rem" }}
+            item
+            sx={12}
+            md={6}
+          >
+            <LazyLoad height={200}>
+              <CardMedia
+                className={classes.mediaTwo}
+                image={bgImg}
+                title="Phyto Berry"
+              />
+            </LazyLoad>
+          </Grid>
+        </Hidden>
         <Grid item sx={12} md={6}>
-          <Box className={productStyles.content}>
+          <Box className={classes.content}>
             <Typography className={classes.title}>
               HEALTH AND WELLNESS
             </Typography>
             <Typography className={classes.body} variant="body1">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lore. Lore. Lorem Ipsum has been them Ipsum has been
-              them Ipsum has been the industry's
+              With 9 distinctive blends of green foods and plant extracts,
+              VegeGreens supplies an extraordinary spectrum of nutrients ranging
+              from the rare trace minerals found in sea vegetables to the
+              health-enhancing compounds exclusive to cruciferous vegetables
             </Typography>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div className={classes.itemInfo}>
               <ul className={classes.listStyles}>
                 <li> Antioxidants </li>
                 <li>Phytonutrients </li>
@@ -101,17 +146,17 @@ const Wellness = () => {
                 <li> Berry Concentrates</li>
               </ul>
               <ul className={classes.listStyles}>
-                <li> Romotes mental clarity</li>
+                <li> Mental clarity</li>
                 <li>Increases energy </li>
               </ul>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div className={classes.mediaGrid}>
               <Card elevation={0} variant="outlined" className={classes.root}>
                 <CardActionArea>
                   <CardMedia
                     className={classes.media}
                     image={blueberries}
-                    title="Contemplative Reptile"
+                    title="Phytoberry berrys"
                     style={{ opacity: ".9" }}
                   />
                   <CardContent>
@@ -138,10 +183,10 @@ const Wellness = () => {
                     12.66
                   </Typography>
                   <Typography variant="body2">8.99</Typography>
-                  <StarIcon style={{ color: "rgba(170, 130, 0, 0.69)" }} />
-                  <StarIcon style={{ color: "rgba(170, 130, 0, 0.69)" }} />
-                  <StarIcon style={{ color: "rgba(170, 130, 0, 0.69)" }} />
-                  <StarHalfIcon style={{ color: "rgba(170, 130, 0, 0.69)" }} />
+                  <StarIcon className={classes.starIconColor} />
+                  <StarIcon className={classes.starIconColor} />
+                  <StarIcon className={classes.starIconColor} />
+                  <StarHalfIcon className={classes.starIconColor} />
                 </CardActions>
               </Card>
               <Card elevation={0} variant="outlined" className={classes.root}>
@@ -149,7 +194,7 @@ const Wellness = () => {
                   <CardMedia
                     className={classes.media}
                     image={veggies}
-                    title="Contemplative Reptile"
+                    title="vegegreens"
                     style={{ opacity: ".9" }}
                   />
                   <CardContent>
@@ -176,12 +221,10 @@ const Wellness = () => {
                     15.66
                   </Typography>
                   <Typography variant="body2">10.99</Typography>
-                  <StarIcon style={{ color: "rgba(170, 130, 0, 0.69)" }} />
-                  <StarIcon style={{ color: "rgba(170, 130, 0, 0.69)" }} />
-                  <StarIcon style={{ color: "rgba(170, 130, 0, 0.69)" }} />
-                  <StarBorderIcon
-                    style={{ color: "rgba(170, 130, 0, 0.69)" }}
-                  />
+                  <StarIcon className={classes.starIconColor} />
+                  <StarIcon className={classes.starIconColor} />
+                  <StarIcon className={classes.starIconColor} />
+                  <StarBorderIcon className={classes.starIconColor} />
                 </CardActions>
               </Card>
             </div>

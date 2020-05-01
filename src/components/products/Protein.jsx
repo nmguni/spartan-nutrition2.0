@@ -1,36 +1,51 @@
 import React from "react";
-import productStyles from "./product.module.scss";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
-
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-
-// imges
 import protein from "./images/protein-powder.png";
 import proteinScoop from "./images/protein-scoop.jpg";
 import proteinScoopWhite from "./images/protein-scoop-white.jpg";
 import headerStyles from "../header/header.module.scss";
-
 import StarIcon from "@material-ui/icons/Star";
-
 import StarHalfIcon from "@material-ui/icons/StarHalf";
+import Hidden from "@material-ui/core/Hidden";
+import LazyLoad from "react-lazyload";
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "center",
+    justifyContent: "center",
+    marginTop: "1rem",
+    [theme.breakpoints.down(950)]: {
+      height: "100%",
+      marginTop: "5%",
+    },
+  },
   title: {
     fontSize: "2rem",
     color: "#313131ea",
     fontWeight: "bold",
+    [theme.breakpoints.down(950)]: {
+      textAlign: "center",
+    },
   },
   body: {
     paddingTop: ".5rem",
     lineHeight: "1.5rem",
     color: "#313131ba",
+    padding: "1rem",
+    [theme.breakpoints.down(1050)]: {
+      textAlign: "center",
+    },
   },
   root: {
     maxWidth: 260,
@@ -46,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
   mediaTwo: {
     height: "100%",
     backgroundSize: "contain",
+    [theme.breakpoints.down(950)]: {
+      display: "none",
+    },
   },
   listStyles: {
     fontWeight: "bold",
@@ -57,30 +75,60 @@ const useStyles = makeStyles((theme) => ({
   starIconColor: {
     color: "rgba(170, 130, 0, 0.69)",
   },
+  content: {
+    margin: "0 10% 0 10%",
+    [theme.breakpoints.down(1050)]: {
+      margin: "0 3% 0 3%",
+    },
+  },
+  mediaGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gridGap: ".5rem",
+    [theme.breakpoints.down(950)]: {
+      display: "flex",
+      justifyContent: "space-evenly",
+    },
+    [theme.breakpoints.down(550)]: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
+  },
+  itemInfo: {
+    flexWrap: "wrap",
+    display: "flex",
+    justifyContent: "space-between",
+    [theme.breakpoints.down(1050)]: {
+      display: "none",
+    },
+  },
 }));
 
 const Protein = () => {
   const classes = useStyles();
   return (
-    <div className={productStyles.container}>
+    <div id="performance" className={classes.container}>
       <Grid container>
-        <Grid
-          className={headerStyles.headColor}
-          style={{ padding: "2.5rem" }}
-          item
-          sx={12}
-          md={6}
-        >
-          {/* <Card elevation={0} variant="outlined" className={classes.rootTwo}> */}
-          <CardMedia
-            className={classes.mediaTwo}
-            image={protein}
-            title="Contemplative Reptile"
-          />
-          {/* </Card> */}
-        </Grid>
+        <Hidden only="sm">
+          <Grid
+            className={headerStyles.headColor}
+            style={{ padding: "2.5rem" }}
+            item
+            sx={12}
+            md={6}
+          >
+            <LazyLoad height={200}>
+              <CardMedia
+                className={classes.mediaTwo}
+                image={protein}
+                title="muscle pharm combat protein"
+              />
+            </LazyLoad>
+          </Grid>
+        </Hidden>
         <Grid item sx={12} md={6}>
-          <Box className={productStyles.content}>
+          <Box className={classes.content}>
             <Typography className={classes.title}>
               Performance & Recovery
             </Typography>
@@ -90,7 +138,7 @@ const Protein = () => {
               variety of sources. As there are so many options, it can be
               difficult to determine which will provide optimal results.
             </Typography>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div className={classes.itemInfo}>
               <ul className={classes.listStyles}>
                 <li>Whey Protein</li>
                 <li>Casein Protein </li>
@@ -104,13 +152,13 @@ const Protein = () => {
                 <li>Brown Rice Protein </li>
               </ul>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div className={classes.mediaGrid}>
               <Card elevation={0} variant="outlined" className={classes.root}>
                 <CardActionArea>
                   <CardMedia
                     className={classes.media}
                     image={proteinScoop}
-                    title="Contemplative Reptile"
+                    title="scoop of chocolate protein"
                     style={{ opacity: ".9" }}
                   />
                   <CardContent>
@@ -149,7 +197,7 @@ const Protein = () => {
                   <CardMedia
                     className={classes.media}
                     image={proteinScoopWhite}
-                    title="Contemplative Reptile"
+                    title="Scoop of vanilla protein powder"
                     style={{ opacity: ".9" }}
                   />
                   <CardContent>

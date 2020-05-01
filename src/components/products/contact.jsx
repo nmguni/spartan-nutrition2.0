@@ -7,15 +7,26 @@ import {
   Marker,
   withScriptjs,
   withGoogleMap,
-  InfoWindow,
 } from "react-google-maps";
 import mapStyles from "../../styles/mapStyles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import Hidden from "@material-ui/core/Hidden";
+import LazyLoad from "react-lazyload";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     Width: "300px",
+  },
+  contactRoot: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: "1.8rem",
+    [theme.breakpoints.down(600)]: {
+      justifyContent: "center",
+    },
   },
 
   title: {
@@ -34,7 +45,6 @@ const useStyles = makeStyles({
   },
   cards: {
     backgroundColor: "#364f6bc2",
-    // Width: "300px",
     padding: "1.2rem",
     margin: ".5rem",
   },
@@ -48,16 +58,22 @@ const useStyles = makeStyles({
     fontWeight: "bold",
     color: "#313131ea",
   },
-});
+  Contactcontainer: {
+    height: "100vh",
+  },
+}));
 
 export default function Contact() {
   return (
     <div id="contact">
-      {" "}
       <Grid container style={{ height: "100vh" }} spacing={2}>
-        <Grid item sm={12} md={6}>
-          {/* <GoogleMaps /> */}
-        </Grid>
+        <Hidden only="sm">
+          <Grid item sm={12} md={6}>
+            <LazyLoad height={300}>
+              <GoogleMaps />
+            </LazyLoad>
+          </Grid>
+        </Hidden>
         <Grid item sm={12} md={6}>
           <ContactInfo />
         </Grid>
@@ -103,15 +119,8 @@ const GoogleMaps = () => {
 const ContactInfo = () => {
   const classes = useStyles();
   return (
-    <div style={{}}>
-      <div
-        style={{
-          height: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+    <div>
+      <div className={classes.contactRoot}>
         <Typography className={classes.titleOne}>Contact Info</Typography>
         <Card className={classes.cards} variant="outlined">
           <CardContent>

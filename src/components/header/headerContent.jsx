@@ -5,13 +5,7 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import headerStyles from "./header.module.scss";
 
-import {
-  createMuiTheme,
-  ThemeProvider,
-  makeStyles,
-} from "@material-ui/core/styles";
-
-// let theme = createMuiTheme();
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -26,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
     boxShadow: "none",
     height: "100%",
-    // backgroundColor: "#cccccc47",
+
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -47,7 +41,26 @@ const useStyles = makeStyles((theme) => ({
   title: {
     fontWeight: "400",
     color: "#256d52",
-    fontSize: "10rem",
+    fontSize: "10vw",
+  },
+  askText: {
+    fontSize: "4vw",
+    color: "rgba(118, 118, 118, 0.89)",
+    textAlign: "center",
+  },
+  botLinks: {
+    display: "flex",
+    flexDirection: "row",
+    alignContent: "center",
+    alignItems: "center",
+    [theme.breakpoints.down(650)]: {
+      flexDirection: "column",
+    },
+  },
+  devivery: {
+    [theme.breakpoints.down(650)]: {
+      marginTop: ".5rem",
+    },
   },
 }));
 
@@ -62,8 +75,6 @@ export default function HeaderContent() {
     </div>
   );
 }
-
-const theme = createMuiTheme();
 
 const HeaderLeftContent = () => {
   const classes = useStyles();
@@ -82,28 +93,16 @@ const HeaderLeftContent = () => {
           Spartan Nutrition
         </Typography>
 
-        <Typography
-          gutterBottom
-          style={{
-            fontSize: "3.5rem",
-
-            opacity: ".1",
-            textAlign: "center",
-          }}
-          variant="body1"
-        >
+        <Typography gutterBottom className={classes.askText} variant="body1">
           ASK THE EXPERTS!
         </Typography>
-        <Box
-          display="flex"
-          flexDirection="row"
-          alignContent="center"
-          alignItems="center"
-        >
+        <Box className={classes.botLinks}>
           <Button className={classes.btnMargin} variant="contained">
             Shop All Suplements
           </Button>
-          <Typography>Local Same Day Delivery Only $5.00</Typography>
+          <Typography className={classes.devivery}>
+            Local Same Day Delivery Only $5.00
+          </Typography>
         </Box>
       </Box>
     </div>

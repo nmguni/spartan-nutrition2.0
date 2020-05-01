@@ -8,8 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import Button from "@material-ui/core/Button";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
@@ -30,10 +28,6 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     position: "relative",
-    // borderBottom: "1px solid rgba(0, 0, 0, 0.25)",
-    // borderLeft: "1px solid rgba(0, 0, 0, 0.25)",
-    // borderRadius: "4px",
-    // backgroundColor: "rgba(0,0,0, 0.1)",
     "&:hover": {
       backgroundColor: fade(theme.palette.common.black, 0.25),
     },
@@ -87,17 +81,14 @@ const useStyles = makeStyles((theme) => ({
     color: "#313131ea",
     textDecoration: "none",
   },
+  titleLink: {
+    textDecoration: "none",
+    color: "black",
+  },
 }));
 
 export default function PrimarySearchAppBar(props) {
   // const classes = useStyles();
-  const [age, setAge] = React.useState("");
-
-  const inputLabel = React.useRef(null);
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -105,10 +96,6 @@ export default function PrimarySearchAppBar(props) {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -151,28 +138,40 @@ export default function PrimarySearchAppBar(props) {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <Typography className={classes.title} variant="h6" noWrap>
-          Nutrition
-        </Typography>
+        <a className={classes.links} href="/#health">
+          Health
+        </a>
       </MenuItem>
       <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
+        <a className={classes.links} href="/#hormone">
+          Hormone
+        </a>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
+      <MenuItem>
+        <a className={classes.links} href="/#performance">
+          Performance
+        </a>
+      </MenuItem>
+      <MenuItem>
+        <a className={classes.links} href="/#performance">
+          Performance
+        </a>
+      </MenuItem>
+      <MenuItem>
+        <a className={classes.links} href="/#about">
+          About
+        </a>
+      </MenuItem>
+      <MenuItem>
+        <a className={classes.links} href="/#blog">
+          Blog
+        </a>
+      </MenuItem>
+      <MenuItem>
+        <a className={classes.links} href="/#contact">
+          {" "}
+          contact
+        </a>
       </MenuItem>
     </Menu>
   );
@@ -195,29 +194,37 @@ export default function PrimarySearchAppBar(props) {
             aria-label="open drawer"
           ></IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Nutrition
+            <a className={classes.titleLink} href="/#home">
+              {" "}
+              Nutrition
+            </a>
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <MenuItem>
               {" "}
-              <a className={classes.links} href="#">
+              <a className={classes.links} href="/#health">
                 Health
               </a>{" "}
             </MenuItem>
             <MenuItem>
-              <a className={classes.links} href="#">
+              <a className={classes.links} href="/#hormone">
                 Hormone
               </a>
             </MenuItem>
             <MenuItem>
-              <a className={classes.links} href="#">
+              <a className={classes.links} href="/#performance">
                 Performance
               </a>
             </MenuItem>
             <MenuItem>
-              <a className={classes.links} href="#">
+              <a className={classes.links} href="/#about">
                 About
+              </a>
+            </MenuItem>
+            <MenuItem>
+              <a className={classes.links} href="/#blog">
+                Blog
               </a>
             </MenuItem>
             <MenuItem>

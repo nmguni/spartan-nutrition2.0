@@ -13,10 +13,14 @@ import focus from "./images/adult-beard-concentrated-concentration.jpg";
 import vitamins from "./images/colors-colours-health-medicine.jpg";
 import rest from "./images/photo-of-person-holding-alarm-clock.jpg";
 
+// icon
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+
 import headerStyles from "../header/header.module.scss";
 import CardHeader from "@material-ui/core/CardHeader";
-import { red } from "@material-ui/core/colors";
 import { Button } from "@material-ui/core";
+
+import LazyLoad from "react-lazyload";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -55,13 +59,13 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: "rotate(180deg)",
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
   // ---------------------- new
   griFlex: {
     display: "flex",
     justifyContent: "center",
+    [theme.breakpoints.down(950)]: {
+      justifyContent: "space-evenly",
+    },
   },
   date: {
     color: "#ccc",
@@ -78,6 +82,14 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "start",
   },
+  cardContent: {
+    margin: "1rem",
+  },
+  gridItem: {
+    [theme.breakpoints.down(950)]: {
+      margin: ".6rem",
+    },
+  },
   buttonColor: {
     color: "rgb(150, 150, 150)",
   },
@@ -85,6 +97,9 @@ const useStyles = makeStyles((theme) => ({
     color: "#313131ea",
     fontSize: "1.2rem",
     fontWeight: "bold",
+    background: "#ededed",
+    padding: ".1rem .5rem",
+    borderRadius: "4px",
   },
   centerBotBtn: {
     display: "flex",
@@ -95,7 +110,7 @@ const useStyles = makeStyles((theme) => ({
 const BlogPage = () => {
   const classes = useStyles();
   return (
-    <div className={(classes.rootTwo, headerStyles.headColor)}>
+    <div id="blog" className={(classes.rootTwo, headerStyles.headColor)}>
       <Box pb={3}>
         <Typography gutterBottom className={classes.title} variant="h4">
           From the Experts
@@ -106,16 +121,19 @@ const BlogPage = () => {
           remaining essentially unchanged. It was popularised in the 1960s with
         </Typography>
       </Box>
-      <Grid container>
-        <Grid className={classes.griFlex} item md={4}>
+      <Grid className={classes.griFlex} container>
+        <Grid className={classes.gridItem} item md={4}>
           <Card elevation={0} variant="outlined" className={classes.root}>
-            <CardMedia
-              className={classes.media}
-              image={focus}
-              title="Paella dish"
-            />
-            <CardContent>
+            <LazyLoad height={200} offset={100}>
+              <CardMedia
+                className={classes.media}
+                image={focus}
+                title="Vitamins for Focusing"
+              />
+            </LazyLoad>
+            <CardContent className={classes.cardContent}>
               <Typography className={classes.date}>07 Nov, 2019</Typography>
+
               <CardHeader
                 className={classes.CardHeader}
                 title="Vitamins for Focusing"
@@ -138,14 +156,16 @@ const BlogPage = () => {
             </CardActions>
           </Card>
         </Grid>
-        <Grid style={{ display: "flex", justifyContent: "center" }} item md={4}>
+        <Grid className={classes.gridItem} item md={4}>
           <Card elevation={0} variant="outlined" className={classes.root}>
-            <CardMedia
-              className={classes.media}
-              image={vitamins}
-              title="Paella dish"
-            />
-            <CardContent>
+            <LazyLoad height={200} offset={100}>
+              <CardMedia
+                className={classes.media}
+                image={vitamins}
+                title="Wellness Supplements"
+              />
+            </LazyLoad>
+            <CardContent className={classes.cardContent}>
               <Typography className={classes.date}>07 Nov, 2019</Typography>
 
               <CardHeader
@@ -170,14 +190,16 @@ const BlogPage = () => {
             </CardActions>
           </Card>
         </Grid>
-        <Grid style={{ display: "flex", justifyContent: "center" }} item md={4}>
+        <Grid className={classes.gridItem} item md={4}>
           <Card elevation={0} variant="outlined" className={classes.root}>
-            <CardMedia
-              className={classes.media}
-              image={rest}
-              title="Paella dish"
-            />
-            <CardContent>
+            <LazyLoad height={200} offset={100}>
+              <CardMedia
+                className={classes.media}
+                image={rest}
+                title="Rest and Recovery"
+              />
+            </LazyLoad>
+            <CardContent className={classes.cardContent}>
               <Typography className={classes.date}>07 Nov, 2019</Typography>
               <CardHeader
                 className={classes.CardHeader}
@@ -198,7 +220,10 @@ const BlogPage = () => {
         </Grid>
       </Grid>
       <Box pt={5} className={classes.centerBotBtn}>
-        <Button className={classes.bottomBtn}> Read More Articles</Button>
+        <Button className={classes.bottomBtn}>
+          {" "}
+          Read More Articles <NavigateNextIcon />
+        </Button>
       </Box>
     </div>
   );

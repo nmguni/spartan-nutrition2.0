@@ -9,7 +9,6 @@ $dot-space: 22px;
 .header {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
   z-index: 10;
 }
 .title .headerContent {
@@ -34,4 +33,10 @@ $dot-space: 22px;
     linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center,
     $dot-color;
   background-size: $dot-space $dot-space;
+}
+
+@media only screen and (min-width: 800px) {
+  #title {
+    color: #ff0000;
+  }
 }
