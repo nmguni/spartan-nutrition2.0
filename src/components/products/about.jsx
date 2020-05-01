@@ -67,6 +67,9 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     display: "flex",
     marginTop: "5%",
+    [theme.breakpoints.down(550)]: {
+      display: "none",
+    },
   },
   image: {
     display: "flex",

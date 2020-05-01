@@ -20,18 +20,28 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
     boxShadow: "none",
     height: "100%",
-
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
   },
-  divider: {
-    margin: theme.spacing(2, 0),
+  innerContainer: {
+    marginTop: " 15%",
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "space-around",
+    [theme.breakpoints.down(700)]: {
+      height: "60vh",
+      marginTop: " 0",
+      display: "flex",
+      // flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+    },
   },
-  root: {
-    color: theme.palette.text.primary,
-  },
+
   btnMargin: {
     marginRight: "1rem",
     color: "#256d52",
@@ -81,14 +91,7 @@ const HeaderLeftContent = () => {
 
   return (
     <div className={headerStyles.headColor}>
-      <Box
-        display="flex"
-        flexDirection="column"
-        alignContent="center"
-        alignItems="center"
-        justifyContent="space-around  "
-        style={{ marginTop: " 15%" }}
-      >
+      <Box className={classes.innerContainer}>
         <Typography className={classes.title} variant="h1">
           Spartan Nutrition
         </Typography>

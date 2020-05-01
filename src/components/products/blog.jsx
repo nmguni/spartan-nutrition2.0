@@ -86,6 +86,8 @@ const useStyles = makeStyles((theme) => ({
     margin: "1rem",
   },
   gridItem: {
+    display: "flex",
+    justifyContent: "center",
     [theme.breakpoints.down(950)]: {
       margin: ".6rem",
     },
