@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: ".5rem",
     lineHeight: "1.5rem",
     color: "#313131ba",
-    padding: "1rem",
+    padding: "1rem 0",
     [theme.breakpoints.down(1050)]: {
       textAlign: "center",
     },
