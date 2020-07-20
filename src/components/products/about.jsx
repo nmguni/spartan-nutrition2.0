@@ -16,7 +16,7 @@ import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    height: "100%",
+    height: "100vh",
     display: "flex",
     alignItems: "center",
     margin: "0 5% 0 5%",

@@ -99,10 +99,10 @@ const useStyles = makeStyles((theme) => ({
     color: "rgb(150, 150, 150)",
   },
   bottomBtn: {
-    color: "#256d52",
+    color: "#313131ea",
     fontSize: "1.2rem",
     fontWeight: "bold",
-    border: "solid 2px #313131ea",
+    border: "solid 1px #313131ea",
     padding: ".1rem .5rem",
     borderRadius: "4px",
   },
@@ -121,9 +121,9 @@ const BlogPage = () => {
           From the Experts
         </Typography>
         <Typography gutterBottom className={classes.body} variant="body1">
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
+          Diet is the essential key to all successful healing. Without a proper
+          balanced diet, the effectiveness of herbal treatment is very limited.
+          <br /> – Michael Tierra
         </Typography>
       </Box>
       <Grid className={classes.griFlex} container>

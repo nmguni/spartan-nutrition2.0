@@ -78,7 +78,7 @@ export default function HeaderContent() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div id="home">
       <Paper className={classes.paper}>
         <HeaderLeftContent />
       </Paper>
